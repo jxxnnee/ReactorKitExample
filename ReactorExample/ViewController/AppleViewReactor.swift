@@ -11,50 +11,44 @@ import ReactorKit
 
 class AppleViewReactor: Reactor {
     enum Action {
-        case increase
-        case decrease
     }
     enum Mutation {
-        case increaseValue
-        case decreaseValue
-        case userName(String)
+        case setImage(UIImage)
     }
     struct State {
-        var value = 0
-        var userName = ""
+        var currentImage: UIImage?
     }
     
     var initialState: State
-    var currentUser: PublishSubject<String>
-    
-    init() {
+    var provider: ServiceProviderProtocol
+    init(provider: ServiceProviderProtocol) {
         self.initialState = State()
-        self.currentUser = PublishSubject<String>()
+        self.provider = provider
     }
     
     func transform(mutation: Observable<Mutation>) -> Observable<Mutation> {
-        return Observable.merge(mutation, self.currentUser.map(Mutation.userName))
+        let appleService = self.provider.appleService.event.flatMap {
+            E -> Observable<Mutation> in
+            print("ddd")
+            switch E {
+            case .imageName(let img):
+                return .just(.setImage(img))
+            }
+        }
+        
+        return Observable.merge(mutation, appleService)
     }
     
     func mutate(action: Action) -> Observable<Mutation> {
-        switch action {
-        case .increase:
-            return .just(.increaseValue)
-        case .decrease:
-            return .just(.decreaseValue)
-        }
+        return .empty()
     }
     
     func reduce(state: State, mutation: Mutation) -> State {
         var newState = state
         
         switch mutation {
-        case .increaseValue:
-            newState.value = state.value + 1
-        case .decreaseValue:
-            newState.value = state.value - 1
-        case .userName(let str):
-            newState.userName = str
+        case .setImage(let img):
+            newState.currentImage = img
         }
         
         return newState

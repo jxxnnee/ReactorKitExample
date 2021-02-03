@@ -18,7 +18,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let _ = (scene as? UIWindowScene) else { return }
         
         let appleViewController = window?.rootViewController as? AppleViewController
-        appleViewController?.reactor = AppleViewReactor()
+        appleViewController?.reactor = AppleViewReactor(provider: ServiceProvider.shared)
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
