@@ -17,6 +17,7 @@
 		87D3C00625CABE98008EBBD5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 87D3C00425CABE98008EBBD5 /* LaunchScreen.storyboard */; };
 		87D3C01125CABE98008EBBD5 /* ReactorExampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87D3C01025CABE98008EBBD5 /* ReactorExampleTests.swift */; };
 		87D3C01C25CABE98008EBBD5 /* ReactorExampleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87D3C01B25CABE98008EBBD5 /* ReactorExampleUITests.swift */; };
+		87E61A0725CAC4DF00F39C44 /* AppleViewReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87E61A0625CAC4DF00F39C44 /* AppleViewReactor.swift */; };
 		D82020037D912FF271DF9D7E /* Pods_ReactorExampleTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 748482CCEEE05CAEC7AC13D4 /* Pods_ReactorExampleTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -59,6 +60,7 @@
 		87D3C01725CABE98008EBBD5 /* ReactorExampleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ReactorExampleUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		87D3C01B25CABE98008EBBD5 /* ReactorExampleUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReactorExampleUITests.swift; sourceTree = "<group>"; };
 		87D3C01D25CABE98008EBBD5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		87E61A0625CAC4DF00F39C44 /* AppleViewReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleViewReactor.swift; sourceTree = "<group>"; };
 		C7C8C9F29A5552A104C22367 /* Pods-ReactorExampleTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReactorExampleTests.debug.xcconfig"; path = "Target Support Files/Pods-ReactorExampleTests/Pods-ReactorExampleTests.debug.xcconfig"; sourceTree = "<group>"; };
 		E49049EEC60DA3ECBB0813D5 /* Pods_ReactorExample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ReactorExample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -139,12 +141,11 @@
 		87D3BFF825CABE96008EBBD5 /* ReactorExample */ = {
 			isa = PBXGroup;
 			children = (
+				87E619DE25CAC1A100F39C44 /* ViewController */,
+				87E61A0B25CAC55500F39C44 /* Storyboards */,
 				87D3BFF925CABE96008EBBD5 /* AppDelegate.swift */,
 				87D3BFFB25CABE96008EBBD5 /* SceneDelegate.swift */,
-				87E619DE25CAC1A100F39C44 /* ViewController */,
-				87D3BFFF25CABE96008EBBD5 /* Main.storyboard */,
 				87D3C00225CABE98008EBBD5 /* Assets.xcassets */,
-				87D3C00425CABE98008EBBD5 /* LaunchScreen.storyboard */,
 				87D3C00725CABE98008EBBD5 /* Info.plist */,
 			);
 			path = ReactorExample;
@@ -172,8 +173,18 @@
 			isa = PBXGroup;
 			children = (
 				87D3BFFD25CABE96008EBBD5 /* AppleViewController.swift */,
+				87E61A0625CAC4DF00F39C44 /* AppleViewReactor.swift */,
 			);
 			path = ViewController;
+			sourceTree = "<group>";
+		};
+		87E61A0B25CAC55500F39C44 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				87D3BFFF25CABE96008EBBD5 /* Main.storyboard */,
+				87D3C00425CABE98008EBBD5 /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -416,6 +427,7 @@
 			files = (
 				87D3BFFE25CABE96008EBBD5 /* AppleViewController.swift in Sources */,
 				87D3BFFA25CABE96008EBBD5 /* AppDelegate.swift in Sources */,
+				87E61A0725CAC4DF00F39C44 /* AppleViewReactor.swift in Sources */,
 				87D3BFFC25CABE96008EBBD5 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
