@@ -25,6 +25,7 @@
 		87E61A7D25CAEE1000F39C44 /* ServiceProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87E61A7C25CAEE1000F39C44 /* ServiceProvider.swift */; };
 		87E61A8225CAF47500F39C44 /* AppleService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87E61A8125CAF47500F39C44 /* AppleService.swift */; };
 		87E61A8825CB008500F39C44 /* Image.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 87E61A8725CB008500F39C44 /* Image.xcassets */; };
+		87E61A9525CB0B2A00F39C44 /* RevisionedData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87E61A9425CB0B2A00F39C44 /* RevisionedData.swift */; };
 		D82020037D912FF271DF9D7E /* Pods_ReactorExampleTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 748482CCEEE05CAEC7AC13D4 /* Pods_ReactorExampleTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -75,6 +76,7 @@
 		87E61A7C25CAEE1000F39C44 /* ServiceProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceProvider.swift; sourceTree = "<group>"; };
 		87E61A8125CAF47500F39C44 /* AppleService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleService.swift; sourceTree = "<group>"; };
 		87E61A8725CB008500F39C44 /* Image.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Image.xcassets; sourceTree = "<group>"; };
+		87E61A9425CB0B2A00F39C44 /* RevisionedData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RevisionedData.swift; sourceTree = "<group>"; };
 		C7C8C9F29A5552A104C22367 /* Pods-ReactorExampleTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReactorExampleTests.debug.xcconfig"; path = "Target Support Files/Pods-ReactorExampleTests/Pods-ReactorExampleTests.debug.xcconfig"; sourceTree = "<group>"; };
 		E49049EEC60DA3ECBB0813D5 /* Pods_ReactorExample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ReactorExample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -155,14 +157,15 @@
 		87D3BFF825CABE96008EBBD5 /* ReactorExample */ = {
 			isa = PBXGroup;
 			children = (
-				87E61A8625CB007600F39C44 /* Source */,
 				87E61A7325CAEDD100F39C44 /* Service */,
 				87E61A1825CAE4ED00F39C44 /* Rx */,
 				87E619DE25CAC1A100F39C44 /* ViewController */,
 				87E61A0B25CAC55500F39C44 /* Storyboards */,
+				87E61A8625CB007600F39C44 /* Source */,
 				87D3BFF925CABE96008EBBD5 /* AppDelegate.swift */,
 				87D3BFFB25CABE96008EBBD5 /* SceneDelegate.swift */,
 				87D3C00725CABE98008EBBD5 /* Info.plist */,
+				87E61A9425CB0B2A00F39C44 /* RevisionedData.swift */,
 			);
 			path = ReactorExample;
 			sourceTree = "<group>";
@@ -476,6 +479,7 @@
 				87E61A1425CADFEF00F39C44 /* OrangeViewController.swift in Sources */,
 				87E61A7D25CAEE1000F39C44 /* ServiceProvider.swift in Sources */,
 				87E61A8225CAF47500F39C44 /* AppleService.swift in Sources */,
+				87E61A9525CB0B2A00F39C44 /* RevisionedData.swift in Sources */,
 				87D3BFFA25CABE96008EBBD5 /* AppDelegate.swift in Sources */,
 				87E61A0725CAC4DF00F39C44 /* AppleViewReactor.swift in Sources */,
 				87E61A1A25CAE4FF00F39C44 /* OrangeViewController+Rx.swift in Sources */,

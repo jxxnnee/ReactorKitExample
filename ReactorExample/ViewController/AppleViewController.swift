@@ -15,7 +15,9 @@ class AppleViewController: UIViewController, StoryboardView {
     let orangeViewController = OrangeViewController()
     internal var imageView = UIImageView()
     
+    
     @IBOutlet weak var persentButton: UIButton!
+    internal var showButton = UIButton()
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -35,6 +37,14 @@ class AppleViewController: UIViewController, StoryboardView {
         self.imageView.contentMode = .scaleAspectFit
         self.imageView.clipsToBounds = true
         
+        self.view.addSubview(self.showButton)
+        self.showButton.snp.makeConstraints({
+            $0.centerX.equalToSuperview()
+            $0.top.equalTo(self.imageView.snp.bottom).offset(50)
+        })
+        
+        self.showButton.setTitleColor(.black, for: .normal)
+        self.showButton.setTitle("HIDE IMAGE", for: .normal)
     }
     
     func bind(reactor: AppleViewReactor) {
@@ -43,6 +53,35 @@ class AppleViewController: UIViewController, StoryboardView {
                 self.present(self.orangeViewController, animated: true, completion: nil)
             })
             .disposed(by: self.disposeBag)
+        
+        self.showButton.rx.tap
+            .map { Reactor.Action.tapShowButton }
+            .bind(to: reactor.action)
+            .disposed(by: self.disposeBag)
+        
+        reactor.state
+            .map { $0.shouldShowImage }
+            .do(onNext: {
+                print("shouldShowImage", $0)
+                let title = $0 ? "HIDE IMAGE" : "SHOW IMAGE"
+                self.showButton.setTitle(title, for: .normal)
+            })
+            .map { $0 ? 1.0 : 0.0 }
+            .bind(to: self.imageView.rx.alpha)
+            .disposed(by: self.disposeBag)
+        
+//        reactor.state
+//            .map { $0.shouldShowImage }
+//            .distinctUntilChanged()
+//            .subscribe(onNext: {
+//                guard let val = $0.data else { return }
+//
+//                print("shouldShowImage", val)
+//                let title = val ? "HIDE IMAGE" : "SHOW IMAGE"
+//                self.showButton.setTitle(title, for: .normal)
+//                self.imageView.alpha = val ? 1.0 : 0.0
+//            })
+//            .disposed(by: self.disposeBag)
         
         reactor.state
             .map { $0.currentImage }

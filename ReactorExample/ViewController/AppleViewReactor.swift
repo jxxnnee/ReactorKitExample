@@ -11,16 +11,21 @@ import ReactorKit
 
 class AppleViewReactor: Reactor {
     enum Action {
+        case tapShowButton
     }
     enum Mutation {
         case setImage(UIImage)
+        case isCanShowImage
     }
     struct State {
         var currentImage: UIImage?
+        var shouldShowImage: Bool = false
+//        var shouldShowImage = RevisionedData<Bool>(data: nil)
     }
     
     var initialState: State
     var provider: ServiceProviderProtocol
+    var isCanShowImage = true
     init(provider: ServiceProviderProtocol) {
         self.initialState = State()
         self.provider = provider
@@ -29,7 +34,6 @@ class AppleViewReactor: Reactor {
     func transform(mutation: Observable<Mutation>) -> Observable<Mutation> {
         let appleService = self.provider.appleService.event.flatMap {
             E -> Observable<Mutation> in
-            print("ddd")
             switch E {
             case .imageName(let img):
                 return .just(.setImage(img))
@@ -40,7 +44,10 @@ class AppleViewReactor: Reactor {
     }
     
     func mutate(action: Action) -> Observable<Mutation> {
-        return .empty()
+        switch action {
+        case .tapShowButton:
+            return .just(.isCanShowImage)
+        }
     }
     
     func reduce(state: State, mutation: Mutation) -> State {
@@ -49,6 +56,10 @@ class AppleViewReactor: Reactor {
         switch mutation {
         case .setImage(let img):
             newState.currentImage = img
+        case .isCanShowImage:
+            newState.shouldShowImage.toggle()
+//            self.isCanShowImage.toggle()
+//            newState.shouldShowImage = state.shouldShowImage.update(self.isCanShowImage)
         }
         
         return newState
