@@ -11,6 +11,7 @@ target 'ReactorExample' do
     	pod 'RxCocoa', '6.0.0'
 	pod 'RxGesture'
 	pod 'ReactorKit'
+	pod 'SnapKit'
 
 
   target 'ReactorExampleTests' do

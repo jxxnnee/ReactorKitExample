@@ -17,15 +17,23 @@ class AppleViewReactor: Reactor {
     enum Mutation {
         case increaseValue
         case decreaseValue
+        case userName(String)
     }
     struct State {
         var value = 0
+        var userName = ""
     }
     
     var initialState: State
+    var currentUser: PublishSubject<String>
     
     init() {
         self.initialState = State()
+        self.currentUser = PublishSubject<String>()
+    }
+    
+    func transform(mutation: Observable<Mutation>) -> Observable<Mutation> {
+        return Observable.merge(mutation, self.currentUser.map(Mutation.userName))
     }
     
     func mutate(action: Action) -> Observable<Mutation> {
@@ -45,6 +53,8 @@ class AppleViewReactor: Reactor {
             newState.value = state.value + 1
         case .decreaseValue:
             newState.value = state.value - 1
+        case .userName(let str):
+            newState.userName = str
         }
         
         return newState
